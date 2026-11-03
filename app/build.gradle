@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.youtubelite'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.youtubelite"
+        // minSdk 21 bắt buộc để chạy được trên Android 5.0 Lollipop
+        minSdk 21
+        // targetSdk 30 hoặc 33 tối ưu hóa quyền và hiệu năng trên Android mới
+        targetSdk 33
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            // LƯU Ý QUAN TRỌNG CHO ANDROID 5.0:
+            // Android 5.0 Lollipop bắt buộc phải bật v1SigningEnabled (JAR Signature Scheme)!
+            // Nếu chỉ bật v2/v3, máy Android 5.0 sẽ báo lỗi "INSTALL_PARSE_FAILED_NO_CERTIFICATES".
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        release {
+            // Bật thu nhỏ code (ProGuard/R8) để giảm dung lượng file APK còn khoảng ~1.8 MB
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            // Cho phép debug mượt mà trên thiết bị thử nghiệm
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        // Tương thích Java 8 trên Android 5.0 Lollipop
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // Thư viện hỗ trợ AndroidX nhẹ, tương thích ngược xuống API 21
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // Không cần bất kỳ SDK ngoài cồng kềnh nào để giữ app siêu nhẹ (< 2MB)
+}
