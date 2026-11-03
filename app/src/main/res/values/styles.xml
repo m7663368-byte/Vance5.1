@@ -1,0 +1,14 @@
+<resources>
+    <!-- Giao diện tối hiện đại, loại bỏ hoàn toàn thanh ActionBar để dành diện tích cho WebView -->
+    <style name="Theme.YouTubeLite" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Màu chủ đạo YouTube đỏ & đen -->
+        <item name="colorPrimary">#FF0000</item>
+        <item name="colorPrimaryVariant">#CC0000</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        
+        <!-- Thanh trạng thái (Status Bar) đen tiệp màu giao diện -->
+        <item name="android:statusBarColor">#0F0F0F</item>
+        <item name="android:navigationBarColor">#0F0F0F</item>
+        <item name="android:windowBackground">#0F0F0F</item>
+    </style>
+</resources>

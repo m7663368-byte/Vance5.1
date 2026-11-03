@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">YouTube Lite</string>
+    <string name="no_internet_title">Không có kết nối Internet</string>
+    <string name="no_internet_desc">Vui lòng kiểm tra lại kết nối Wi-Fi hoặc dữ liệu di động của bạn và thử lại.</string>
+    <string name="btn_retry">Thử lại ngay</string>
+    <string name="press_back_again_to_exit">Nhấn Back lần nữa để thoát</string>
+    <string name="network_error">Lỗi kết nối</string>
+    <string name="still_no_internet">Vẫn chưa có kết nối Internet. Vui lòng kiểm tra lại!</string>
+</resources>
